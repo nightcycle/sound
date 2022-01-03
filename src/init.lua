@@ -1,7 +1,7 @@
-local packages = game.ReplicatedStorage:WaitForChild('Packages')
+local packages = script.Parent
 
 local maidConstructor = require(packages:WaitForChild('maid'))
-local library = require(packages:WaitForChild('Library'))
+local library = require(packages:WaitForChild('library'))
 
 local sounds = library.new("Sounds")
 for i, soundGroup in ipairs(game:WaitForChild("SoundService"):GetChildren()) do
