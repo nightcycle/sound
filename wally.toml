@@ -1,7 +1,7 @@
 [package]
 name = "nightcycle/sound"
 description = "a basic wrapper for sound instances with 1-time user functionality"
-version = "1.0.6"
+version = "1.0.7"
 authors = ["CJ Oyer <coyer@nightcycle.us>"]
 realm = "shared"
 registry = "https://github.com/upliftgames/wally-index"
@@ -9,4 +9,3 @@ exclude = ["Packages", ".vscode"]
 
 [dependencies]
 maid = "quenty/maid@^2.0.1-canary"
-library = "nightcycle/library@1.0.1"

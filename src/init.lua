@@ -1,14 +1,13 @@
 local packages = script.Parent
 
 local maidConstructor = require(packages:WaitForChild('maid'))
-local library = require(packages:WaitForChild('library'))
 
-local sounds = library.new("Sounds")
+local sounds = {}
 for i, soundGroup in ipairs(game:WaitForChild("SoundService"):GetChildren()) do
 	for _, soundInst in ipairs(soundGroup:GetChildren()) do
 		if soundInst:IsA("Sound") then
 			soundInst.SoundGroup = soundGroup
-			sounds:Set(soundGroup.Name.."/"..soundInst.Name, soundInst)
+			sounds[soundGroup.Name.."/"..soundInst.Name] = soundInst
 		end
 	end
 end
@@ -46,7 +45,7 @@ local constructor = {}
 function constructor.new(soundKey, parentInst)
 	local self = setmetatable({}, Object)
 
-	self.Instance = sounds:Get(soundKey):Clone()
+	self.Instance = sounds[soundKey]:Clone()
 	self._maid:GiveTask(self.Instance)
 	if parentInst then
 		self.Instance.Parent = parentInst
